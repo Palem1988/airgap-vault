@@ -6,7 +6,7 @@ import { SocialRecoverySetupPage } from '../social-recovery-setup/social-recover
 import { SecretEditPopoverComponent } from './secret-edit-popover/secret-edit-popover.component'
 import { WalletSelectCoinsPage } from '../wallet-select-coins/wallet-select-coins'
 import { handleErrorLocal, ErrorCategory } from '../../providers/error-handler/error-handler'
-import { InteractionSelectionSettingsPage } from '../interaction-selection-settings/interaction-selection-settings'
+// import { InteractionSelectionSettingsPage } from '../interaction-selection-settings/interaction-selection-settings'
 
 @IonicPage()
 @Component({
@@ -52,9 +52,9 @@ export class SecretEditPage {
   }
 
   goToWalletInteraction() {
-    this.navController
-      .push(InteractionSelectionSettingsPage, { secret: this.secret, isEdit: true })
-      .catch(handleErrorLocal(ErrorCategory.IONIC_NAVIGATION))
+    // this.navController
+    //   .push(InteractionSelectionSettingsPage, { secret: this.secret, isEdit: true })
+    //   .catch(handleErrorLocal(ErrorCategory.IONIC_NAVIGATION))
   }
 
   presentEditPopover(event) {
