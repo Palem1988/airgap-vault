@@ -18,7 +18,7 @@ export class Secret {
 
   private twofactor: string
 
-  constructor(seed: string, label: string = '', isParanoia = false, interactionSetting = InteractionSetting.UNDETERMINED) {
+  constructor(seed: string, label: string = '', isParanoia = false, interactionSetting = InteractionSetting.OFFLINE_DEVICE) {
     this.label = label
     this.isParanoia = isParanoia
     this.interactionSetting = interactionSetting

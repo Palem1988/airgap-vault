@@ -30,7 +30,7 @@ export class SecretGeneratePage {
   public gyroEnabled = true
   public touchEnabled = true
 
-  private ENTROPY_STARTUP_TIME = 5
+  private ENTROPY_STARTUP_TIME = 1
   private startupTimeWaited = false
 
   entropy = {
@@ -42,7 +42,7 @@ export class SecretGeneratePage {
     public gyroService: GyroscopeNativeService,
     public entropyService: EntropyService,
     public cameraService: CameraNativeService,
-    public audioService: AudioNativeService,
+    // public audioService: AudioNativeService,
     private platform: Platform,
     private changeDetectorRef: ChangeDetectorRef,
     private permissionsProvider: PermissionsProvider,
@@ -58,7 +58,7 @@ export class SecretGeneratePage {
 
   checkEntropySourceStatus() {
     if (this.startupTimeWaited) {
-      this.audioEnabled = this.audioService.getCollectedEntropyPercentage() !== 0
+      // this.audioEnabled = this.audioService.getCollectedEntropyPercentage() !== 0
       this.cameraEnabled = this.cameraService.getCollectedEntropyPercentage() !== 0
       this.gyroEnabled = this.gyroService.getCollectedEntropyPercentage() !== 0
       // Touch will not be disabled
@@ -91,7 +91,7 @@ export class SecretGeneratePage {
 
   initEntropy() {
     this.entropyService.addEntropySource(this.cameraService)
-    this.entropyService.addEntropySource(this.audioService)
+    // this.entropyService.addEntropySource(this.audioService)
     this.entropyService.addEntropySource(this.gyroService)
     this.entropyService.addEntropySource(this.touchEntropy)
     this.entropyService
@@ -115,7 +115,7 @@ export class SecretGeneratePage {
     const percentageNeeded = enabledSources.reduce((a, b) => a + (b ? 100 : 0), 0)
 
     if (
-      Math.min(100, this.audioService.getCollectedEntropyPercentage()) +
+      // Math.min(100, this.audioService.getCollectedEntropyPercentage()) +
         Math.min(100, this.cameraService.getCollectedEntropyPercentage()) +
         Math.min(100, this.gyroService.getCollectedEntropyPercentage()) +
         Math.min(100, this.touchEntropy.getCollectedEntropyPercentage()) >=

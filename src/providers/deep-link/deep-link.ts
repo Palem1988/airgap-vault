@@ -63,7 +63,7 @@ export class DeepLinkProvider {
   showAppNotFoundAlert() {
     this.translateService
       .get(['deep-link.app-not-found.title', 'deep-link.app-not-found.message', 'deep-link.app-not-found.ok'], {
-        otherAppName: 'AirGap Wallet'
+        otherAppName: 'CryptoControl Terminal Wallet'
       })
       .subscribe(translated => {
         let alert = this.alertCtrl.create({

@@ -20,11 +20,11 @@
 
   "distribution-onboarding":{
     "ask-permission": {
-      "heading": "AirGap is <span class=\"style__strong color__primary\"> not persistent</span>, secrets generated will not be stored and need to be <span class=\"style__strong color__primary\">imported again</span> after a restart",
+      "heading": "CryptoControl is <span class=\"style__strong color__primary\"> not persistent</span>, secrets generated will not be stored and need to be <span class=\"style__strong color__primary\">imported again</span> after a restart",
       "text":"This Distribution is intended to securely generate secrets as well as to sign transactions offline, but not for secret storage."
     },
     "no-vm": {
-      "heading": "AirGap Vault Distribution should <span class=\"style__strong color__primary\">not</span> be run on a <span class=\"style__strong color__primary\">virtual machine</span>, if the host has network connectivity even if the connectivity has been turned off temporarily. ",
+      "heading": "CryptoControl Vault Distribution should <span class=\"style__strong color__primary\">not</span> be run on a <span class=\"style__strong color__primary\">virtual machine</span>, if the host has network connectivity even if the connectivity has been turned off temporarily. ",
       "text":"Make sure that the client is disconnected from any network before you generate a new secret or import an existing one."
     },
     "understood_label":"Understood"
@@ -37,7 +37,7 @@
   },
 
   "secret-generate-onboarding":{
-    "heading": "AirGap is going to ask you for <span class=\"style__strong color__primary\">camera</span> and <span class=\"style__strong color__primary\">microphone</span> permission, to allow a secure secret generation.",
+    "heading": "CryptoControl is going to ask you for <span class=\"style__strong color__primary\">camera</span> and <span class=\"style__strong color__primary\">microphone</span> permission, to allow a secure secret generation.",
     "text": "Both permissions are used in order to generate a more secure secret for you.",
     "grant-permission_label": "Grant Permission"
   },
@@ -61,30 +61,30 @@
     "title": "The New Crypto Wallet Standard",
     "highest": {
       "label": "Highest Security",
-      "text": "With the AirGap <b>two device approach</b> secure key handling becomes more accessible."
+      "text": "With the CryptoControl's <b>two device approach</b>, secure key handling becomes more accessible."
     },
     "medium": {
       "label": "Medium Security",
-      "text": "With the AirGap <b>two app approach</b> secure key handling becomes more accessible."
+      "text": "With the CryptoControl <b>two app approach</b> secure key handling becomes more accessible."
     },
     "vault": {
-      "heading": "AirGap Vault",
-      "text": "The private key is generated and securely stored in the AirGap Vault app.<b>You have to install AirGap Vault to use AirGap Wallet</b>"
+      "heading": "CryptoControl Vault",
+      "text": "The private key is generated and securely stored in the CryptoControl Vault app.<b>You have to install the CryptoControl Vault app to use the CryptoControl Terminal Wallet</b>"
     },
     "wallet": {
-      "heading": "AirGap Wallet",
-      "text": "The wallet application deals only with public information and is responsible for broadcasting transactions to the blockchain."
+      "heading": "CryptoControl Terminal Wallet",
+      "text": "The CryptoControl terminal comes in with a built-in wallet application. This application deals only with public information and is responsible for broadcasting transactions to the blockchain."
     },
     "communication": {
       "highest_text": "One-way communication with QR codes.",
       "medium_text": "Secure communication through app switching."
     },
-    "wallet_install_label": "Install AirGap Wallet",
+    "wallet_install_label": "Install CryptoControl Wallet",
     "continue_label": "Let's Go"
   },
 
   "secret-create":{
-    "heading":"Let's setup AirGap!",
+    "heading":"Let's setup CryptoControl Wallet!",
     "text":"Do you want to create a new secret or import an existing one?",
     "generate": {
       "label":"Generate",
@@ -244,8 +244,8 @@
 
   "tab-scan":{
     "title":"QR Code Scanner",
-    "text":"Scan a QR Code from AirGap Wallet",
-    "empty-state_heading": "In order to scan QR codes, AirGap Vault needs the <span class=\"style__strong color__primary\">camera permission</span>.",
+    "text":"Scan a QR Code from CryptoControl Wallet",
+    "empty-state_heading": "In order to scan QR codes, CryptoControl needs the <span class=\"style__strong color__primary\">camera permission</span>.",
     "grant-permission_label":"Grant permission"
   },
 
@@ -260,7 +260,7 @@
   "tab-wallets":{
     "title":"Accounts",
     "search_placeholder":"Search Currency",
-    "empty-state_text":"Create a new account by selecting a currency and sync it to AirGap Wallet.",
+    "empty-state_text":"Create a new account by selecting a currency and sync it to the CryptoControl Wallet.",
     "add-wallet_label":"Add Account",
     "incompatible-qr_alert": {
       "title": "Incompatible QR",
@@ -269,17 +269,17 @@
     },
     "no-secret_alert":{
       "title": "No account found",
-      "text": "You do not have any compatible account for this public key in AirGap. Please import your secret and create the corresponding account to sign this transaction.",
+      "text": "You do not have any compatible account for this public key in CryptoControl. Please import your secret and create the corresponding account to sign this transaction.",
       "okay_label": "Okay"
     },
     "sync-operation-not-supported_alert": {
       "title": "Sync operation not supported",
-      "text": "Please use AirGap Wallet to scan this QR.",
+      "text": "Please use CryptoControl Terminal Wallet to scan this QR.",
       "okay_label": "Okay"
     },
     "invalid-sync-operation_alert": {
       "title": "Incompatible Sync code",
-      "text": "Could not parse sync code. Please make sure this is a valid AirGap sync code.",
+      "text": "Could not parse sync code. Please make sure this is a valid CryptoControl sync code.",
       "okay_label": "Okay"
     },
     "raw-tx_alert":{
@@ -301,7 +301,7 @@
 
   "transaction-signed":{
     "title":"Signed Transaction",
-    "heading": "This is your signed transaction, scan it with <span class=\"style__strong color__primary\">AirGap Wallet</span>.",
+    "heading": "This is your signed transaction, scan it with <span class=\"style__strong color__primary\">CryptoControl Wallet</span>.",
     "raw-tx_label":"Display Raw Transaction",
     "done_label":"Done"
   },
@@ -370,12 +370,12 @@
 
   "warnings-modal":{
     "disclaimer": {
-      "title": "AirGap Disclaimer",
+      "title": "CryptoControl Disclaimer",
       "text": "You as the user hereby accept and acknowledge this protocol and all the information provided within to the fullest extent. You as the user confirm that the content this document has been reviewed, tested and understood on their own behalf.",
       "disclaimer-list": {
         "text": "To the fullest extent permitted by applicable law:",
-        "item-1_text": "All services provided by Papers GmbH, its employees, freelancers or other subcontractors are provided without representation and warranty of any kind",
-        "item-2_text": "Papers GmbH disclaims any and all direct and indirect liability for damage occurring under, or in connection with, this Protocol, especially, but not limited to loss of, or damage to, data, lost profit, compromised / hacked product or system, and or stolen / missing monetary funds."
+        "item-1_text": "All services provided by CryptoControl, its employees, freelancers or other subcontractors are provided without representation and warranty of any kind",
+        "item-2_text": "CryptoControl disclaims any and all direct and indirect liability for damage occurring under, or in connection with, this Protocol, especially, but not limited to loss of, or damage to, data, lost profit, compromised / hacked product or system, and or stolen / missing monetary funds."
       },
       "description": "You understand the risks involved in this software, including but no limited to losing your secret, thus private keys and access to your funds.",
       "understood_label": "I understand and accept"

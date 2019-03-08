@@ -6,6 +6,7 @@ import { DummyEntropyService } from '../entropy/dummy.entropy.service'
 
 export interface GyroscopeService {}
 
+
 export function GyroscopeServiceFactory(platform: Platform, deviceMotion: DeviceMotion): IEntropyGenerator {
   if (platform.is('cordova')) {
     return new GyroscopeNativeService(platform, deviceMotion)

@@ -4,8 +4,6 @@ import { SecretGeneratePage } from './secret-generate'
 import { GyroscopeNativeService } from '../../providers/gyroscope/gyroscope.native.service'
 import { CameraNativeService } from '../../providers/camera/camera.native.service'
 import { CameraFactory } from '../../providers/camera/camera.factory'
-import { AudioNativeService } from '../../providers/audio/audio.native.service'
-import { AudioServiceFactory } from '../../providers/audio/audio.factory'
 import { GyroscopeServiceFactory } from '../../providers/gyroscope/gyroscope.factory'
 import { Gyroscope } from '@ionic-native/gyroscope'
 import { SecureStorageService } from '../../providers/storage/secure-storage'
@@ -32,11 +30,11 @@ import { TranslateModule } from '@ngx-translate/core'
       useFactory: CameraFactory,
       deps: [Platform, RendererFactory2]
     },
-    {
-      provide: AudioNativeService,
-      useFactory: AudioServiceFactory,
-      deps: [Platform]
-    },
+    // {
+    //   provide: AudioNativeService,
+    //   useFactory: AudioServiceFactory,
+    //   deps: [Platform]
+    // },
     {
       provide: GyroscopeNativeService,
       useFactory: GyroscopeServiceFactory,

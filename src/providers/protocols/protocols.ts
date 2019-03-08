@@ -1,18 +1,7 @@
 import { Injectable } from '@angular/core'
 import { GenericERC20, addSubProtocol, TezosKtProtocol, GenericERC20Configuration } from 'airgap-coin-lib'
-import { addSupportedProtocol } from 'airgap-coin-lib/dist/utils/supportedProtocols'
-import { AeternityERC20Token } from 'airgap-coin-lib/dist/protocols/ethereum/erc20/AeToken'
 
 import { tokens } from './tokens'
-
-interface SubProtocolInfo {
-  symbol: string
-  name: string
-  marketSymbol: string
-
-  identifier: string
-  data: [string]
-}
 
 interface SubAccount {
   protocol: string
@@ -26,12 +15,12 @@ export class ProtocolsProvider {
       protocol: 'eth',
       subProtocols: [
         {
-          symbol: 'AE-ERC20',
-          name: 'æternity Ethereum Token',
-          marketSymbol: 'ae',
-          identifier: 'eth-erc20-ae',
-          contractAddress: '0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d',
-          decimals: 18
+          symbol: 'CCIO',
+          name: 'CryptoControl',
+          marketSymbol: 'CCIO',
+          identifier: 'eth-erc20-ccio',
+          contractAddress: '0x4a9e09f6d1f643ee5f3b02039843d774a224577a',
+          decimals: 8
         }
       ]
     }
@@ -39,10 +28,10 @@ export class ProtocolsProvider {
 
   constructor() {
     /* */
+    console.log('hit')
   }
 
   addProtocols() {
-    addSupportedProtocol(AeternityERC20Token)
     addSubProtocol('xtz', new TezosKtProtocol())
 
     this.subProtocols.forEach(supportedSubAccount => {

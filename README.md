@@ -98,7 +98,7 @@ $ npm test
 
 ## Security
 
-If you discover a security vulnerability within this application, please send an e-mail to hi@airgap.it. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this application, please send an e-mail to bugs@cryptocontrol.io. All security vulnerabilities will be promptly addressed.
 
 ## Contributing
 

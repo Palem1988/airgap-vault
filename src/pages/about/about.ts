@@ -8,7 +8,7 @@ import { handleErrorLocal, ErrorCategory } from '../../providers/error-handler/e
   templateUrl: 'about.html'
 })
 export class AboutPage {
-  public appName = ''
+  public appName = 'CryptoControl Terminal Wallet'
   public packageName = ''
   public versionNumber = ''
   public versionCode = ''
