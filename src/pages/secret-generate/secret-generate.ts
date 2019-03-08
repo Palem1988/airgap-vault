@@ -2,8 +2,6 @@ import { ChangeDetectorRef, Component, ViewChild, RendererFactory2, Renderer2, E
 import { NavController, Platform } from 'ionic-angular'
 import { SecretRulesPage } from '../secret-rules/secret-rules'
 import { Secret } from '../../models/secret'
-import { CameraNativeService } from '../../providers/camera/camera.native.service'
-import { AudioNativeService } from '../../providers/audio/audio.native.service'
 import { EntropyService } from '../../providers/entropy/entropy.service'
 import { GyroscopeNativeService } from '../../providers/gyroscope/gyroscope.native.service'
 import { TouchEntropyComponent } from '../../components/touch-entropy/touch-entropy'
@@ -25,8 +23,8 @@ export class SecretGeneratePage {
   @ViewChild('touchEntropy')
   touchEntropy: TouchEntropyComponent
 
-  public cameraEnabled = true
-  public audioEnabled = true
+  // public cameraEnabled = true
+  // public audioEnabled = true
   public gyroEnabled = true
   public touchEnabled = true
 
@@ -41,7 +39,7 @@ export class SecretGeneratePage {
     private navController: NavController,
     public gyroService: GyroscopeNativeService,
     public entropyService: EntropyService,
-    public cameraService: CameraNativeService,
+    // public cameraService: CameraNativeService,
     // public audioService: AudioNativeService,
     private platform: Platform,
     private changeDetectorRef: ChangeDetectorRef,
@@ -59,7 +57,7 @@ export class SecretGeneratePage {
   checkEntropySourceStatus() {
     if (this.startupTimeWaited) {
       // this.audioEnabled = this.audioService.getCollectedEntropyPercentage() !== 0
-      this.cameraEnabled = this.cameraService.getCollectedEntropyPercentage() !== 0
+      // this.cameraEnabled = this.cameraService.getCollectedEntropyPercentage() !== 0
       this.gyroEnabled = this.gyroService.getCollectedEntropyPercentage() !== 0
       // Touch will not be disabled
     }
@@ -68,10 +66,10 @@ export class SecretGeneratePage {
   async ionViewWillEnter() {
     await this.platform.ready()
 
-    if (this.isBrowser) {
-      this.cameraService.setVideoElement(this.videoElement)
-    }
-    this.cameraService.viewWillEnter()
+    // if (this.isBrowser) {
+    //   this.cameraService.setVideoElement(this.videoElement)
+    // }
+    // this.cameraService.viewWillEnter()
     this.injectCSS()
 
     await this.permissionsProvider.requestPermissions([PermissionTypes.CAMERA, PermissionTypes.MICROPHONE])
@@ -90,7 +88,7 @@ export class SecretGeneratePage {
   }
 
   initEntropy() {
-    this.entropyService.addEntropySource(this.cameraService)
+    // this.entropyService.addEntropySource(this.cameraService)
     // this.entropyService.addEntropySource(this.audioService)
     this.entropyService.addEntropySource(this.gyroService)
     this.entropyService.addEntropySource(this.touchEntropy)
@@ -111,12 +109,12 @@ export class SecretGeneratePage {
     this.changeDetectorRef.detectChanges()
     this.checkEntropySourceStatus()
 
-    const enabledSources = [this.audioEnabled, this.cameraEnabled, this.gyroEnabled, this.touchEnabled]
+    const enabledSources = [this.gyroEnabled, this.touchEnabled]
     const percentageNeeded = enabledSources.reduce((a, b) => a + (b ? 100 : 0), 0)
 
     if (
       // Math.min(100, this.audioService.getCollectedEntropyPercentage()) +
-        Math.min(100, this.cameraService.getCollectedEntropyPercentage()) +
+        // Math.min(100, this.cameraService.getCollectedEntropyPercentage()) +
         Math.min(100, this.gyroService.getCollectedEntropyPercentage()) +
         Math.min(100, this.touchEntropy.getCollectedEntropyPercentage()) >=
       percentageNeeded
@@ -126,7 +124,7 @@ export class SecretGeneratePage {
   }
 
   ionViewDidLeave() {
-    this.cameraService.viewDidLeave()
+    // this.cameraService.viewDidLeave()
     this.uninjectCSS()
     this.entropyService.stopEntropyCollection().catch(handleErrorLocal(ErrorCategory.ENTROPY_COLLECTION))
   }

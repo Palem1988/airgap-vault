@@ -18,8 +18,8 @@ export class CameraNativeService implements IEntropyGenerator {
   private cameraIsTakingPhoto = false // Prevent stopping camera while picture is being taken
 
   // entropy settings
-  private VIDEO_SIZE = 50
-  private VIDEO_QUALITY = 100
+  private VIDEO_SIZE = 3
+  private VIDEO_QUALITY = 10
   private VIDEO_FREQUENCY = 2000
 
   private renderer: Renderer2

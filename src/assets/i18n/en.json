@@ -43,7 +43,7 @@
   },
 
   "current-secret":{
-    "label": "Active Secret:"
+    "label": "Active Account:"
   },
 
   "from-to":{
@@ -136,7 +136,7 @@
 
   "secret-generate":{
     "heading":"We're generating your secret.",
-    "text":"For this we use your video, audio, touch and device acceleration to add additional entropy to your secret.",
+    "text":"For this we use your video, audio, touch and device acceleration to add additional randomness to your secret.",
     "description":"Move your device around to record audio, video & acceleration until all shields are full.",
     "continue_label":"Continue"
   },
@@ -253,15 +253,15 @@
     "about":"About",
     "title":"Settings",
     "information_label": "Information",
-    "secrets_label": "Secrets",
-    "add-settings_label":"Add Secret"
+    "secrets_label": "Accounts",
+    "add-settings_label":"Add Account"
   },
 
   "tab-wallets":{
     "title":"Accounts",
     "search_placeholder":"Search Currency",
     "empty-state_text":"Create a new account by selecting a currency and sync it to the CryptoControl Wallet.",
-    "add-wallet_label":"Add Account",
+    "add-wallet_label":"Add Coin",
     "incompatible-qr_alert": {
       "title": "Incompatible QR",
       "text": "This QR is not a raw transaction.",

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController, ToastController, NavParams, PopoverController, Platform } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular'
 import { WalletEditPopoverComponent } from './wallet-edit-popover/wallet-edit-popover.component'
 import { AirGapWallet } from 'airgap-coin-lib'
 import { ClipboardProvider } from '../../providers/clipboard/clipboard'
@@ -21,12 +21,10 @@ export class WalletAddressPage {
 
   constructor(
     private popoverCtrl: PopoverController,
-    private toastController: ToastController,
     private clipboardProvider: ClipboardProvider,
     private navController: NavController,
     private navParams: NavParams,
     private secretsProvider: SecretsProvider,
-    private platform: Platform,
     private shareUrlProvider: ShareUrlProvider,
     private interactionProvider: InteractionProvider
   ) {

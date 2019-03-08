@@ -11,7 +11,7 @@ const hashWorker = new Worker(blobURL)
 
 @Injectable()
 export class EntropyService {
-  ENTROPY_SIZE = 4096
+  ENTROPY_SIZE = 4096 / 2
 
   entropyGenerators: IEntropyGenerator[] = []
   entropySubscriptions: Subscription[] = []
