@@ -29,8 +29,8 @@ import { IntroductionPageModule } from '../pages/introduction/introduction.modul
 import { LocalAuthenticationOnboardingPageModule } from './local-authentication-onboarding/local-authentication-onboarding.module'
 import { SecretGenerateOnboardingPageModule } from './secret-generate-onboarding/secret-generate-onboarding.module'
 import { DistributionOnboardingPageModule } from './distribution-onboarding/distribution-onboarding.module'
-import { InteractionSelectionPageModule } from './interaction-selection/interaction-selection.module'
-import { InteractionSelectionSettingsPageModule } from './interaction-selection-settings/interaction-selection-settings.module'
+// import { InteractionSelectionPageModule } from './interaction-selection/interaction-selection.module'
+// import { InteractionSelectionSettingsPageModule } from './interaction-selection-settings/interaction-selection-settings.module'
 
 @NgModule({
   imports: [
@@ -64,8 +64,8 @@ import { InteractionSelectionSettingsPageModule } from './interaction-selection-
     LocalAuthenticationOnboardingPageModule,
     DistributionOnboardingPageModule,
     IntroductionPageModule,
-    InteractionSelectionPageModule,
-    InteractionSelectionSettingsPageModule
+    // InteractionSelectionPageModule,
+    // InteractionSelectionSettingsPageModule
   ],
   exports: []
 })

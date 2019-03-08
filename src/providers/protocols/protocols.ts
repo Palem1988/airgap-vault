@@ -28,11 +28,10 @@ export class ProtocolsProvider {
 
   constructor() {
     /* */
-    console.log('hit')
   }
 
   addProtocols() {
-    addSubProtocol('xtz', new TezosKtProtocol())
+    // addSubProtocol('xtz', new TezosKtProtocol())
 
     this.subProtocols.forEach(supportedSubAccount => {
       supportedSubAccount.subProtocols.forEach(subProtocol => {

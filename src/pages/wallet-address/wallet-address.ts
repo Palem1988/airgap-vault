@@ -1,14 +1,12 @@
 import { Component } from '@angular/core'
 import { IonicPage, NavController, ToastController, NavParams, PopoverController, Platform } from 'ionic-angular'
 import { WalletEditPopoverComponent } from './wallet-edit-popover/wallet-edit-popover.component'
-import { AirGapWallet, DeserializedSyncProtocol, EncodedType, SyncProtocolUtils, SyncWalletRequest } from 'airgap-coin-lib'
+import { AirGapWallet } from 'airgap-coin-lib'
 import { ClipboardProvider } from '../../providers/clipboard/clipboard'
 import { ShareUrlProvider } from '../../providers/share-url/share-url'
 import { ErrorCategory, handleErrorLocal } from '../../providers/error-handler/error-handler'
-import { InteractionSelectionPage } from '../interaction-selection/interaction-selection'
-import { WalletSharePage } from '../wallet-share/wallet-share'
 import { SecretsProvider } from '../../providers/secrets/secrets.provider'
-import { InteractionProvider, InteractionOperationType, InteractionSetting } from '../../providers/interaction/interaction'
+import { InteractionProvider, InteractionOperationType, InteractionCommunicationType } from '../../providers/interaction/interaction'
 
 declare var window: any
 
@@ -47,6 +45,7 @@ export class WalletAddressPage {
     this.interactionProvider.startInteraction(
       this.navController,
       {
+        communicationType: InteractionCommunicationType.QR,
         operationType: InteractionOperationType.WALLET_SYNC,
         url: this.walletShareUrl
       },

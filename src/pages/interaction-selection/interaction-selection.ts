@@ -1,19 +1,14 @@
 import { SecretsProvider } from '../../providers/secrets/secrets.provider'
 import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
-import { AirGapWallet, DeserializedSyncProtocol, EncodedType, SyncProtocolUtils, SyncWalletRequest } from 'airgap-coin-lib'
 import { InteractionSelectionSettingsPage } from '../interaction-selection-settings/interaction-selection-settings'
 import { ErrorCategory, handleErrorLocal } from '../../providers/error-handler/error-handler'
-import { WalletSharePage } from '../wallet-share/wallet-share'
-import { ShareUrlProvider } from '../../providers/share-url/share-url'
 import {
-  InteractionSetting,
   InteractionProvider,
   IInteractionOptions,
   InteractionCommunicationType
 } from '../../providers/interaction/interaction'
-import { Transaction } from '../../models/transaction.model'
-import { Secret } from '../../models/secret'
+
 
 @IonicPage()
 @Component({
@@ -38,17 +33,17 @@ export class InteractionSelectionPage {
   }
 
   async selectSameDevice() {
-    this.interactionOptions.communicationType = InteractionCommunicationType.DEEPLINK
+    this.interactionOptions.communicationType = InteractionCommunicationType.QR
     this.goToNextPage()
   }
 
   private goToNextPage() {
     const secret = this.secretsProvider.getActiveSecret()
-    if (secret.interactionSetting === InteractionSetting.UNDETERMINED) {
-      this.goToInteractionSelectionSettingsPage(this.interactionOptions)
-    } else {
+    // if (secret.interactionSetting === InteractionSetting.UNDETERMINED) {
+    //   this.goToInteractionSelectionSettingsPage(this.interactionOptions)
+    // } else {
       this.interactionProvider.startInteraction(this.navCtrl, this.interactionOptions, secret)
-    }
+    // }
   }
 
   private goToInteractionSelectionSettingsPage(interactionOptions: IInteractionOptions) {

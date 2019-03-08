@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, App } from 'ion
 import { SecretsProvider } from '../../providers/secrets/secrets.provider'
 import { Storage } from '@ionic/storage'
 import { LocalAuthenticationOnboardingPage } from '../local-authentication-onboarding/local-authentication-onboarding'
-import { ICoinProtocol, supportedProtocols } from 'airgap-coin-lib'
+import { ICoinProtocol, supportedProtocols, BitcoinProtocol, EthereumProtocol, TezosKtProtocol, GenericERC20 } from 'airgap-coin-lib'
 import { handleErrorLocal, ErrorCategory } from '../../providers/error-handler/error-handler'
 
 @IonicPage()
@@ -26,7 +26,22 @@ export class WalletSelectCoinsPage {
     private storage: Storage,
     private app: App
   ) {
-    this.coinProtocols = supportedProtocols()
+    // protocolsProvider.subProtocols
+
+    const protocols = []
+    protocols.push(new GenericERC20({
+      symbol: 'CCIO',
+      name: 'CryptoControl',
+      marketSymbol: 'CCIO',
+      identifier: 'eth-erc20-ccio',
+      contractAddress: '0x4a9e09f6d1f643ee5f3b02039843d774a224577a',
+      decimals: 8
+    }))
+    protocols.push(new BitcoinProtocol())
+    protocols.push(new EthereumProtocol())
+    protocols.push(new TezosKtProtocol())
+
+    this.coinProtocols = protocols // supportedProtocols()
   }
 
   ionViewDidLoad() {

@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core'
-import { Storage } from '@ionic/storage'
 import { NavController } from 'ionic-angular'
 import { ErrorCategory, handleErrorLocal } from '../error-handler/error-handler'
-import { InteractionSelectionPage } from '../../pages/interaction-selection/interaction-selection'
 import { DeepLinkProvider } from '../deep-link/deep-link'
 import { WalletSharePage } from '../../pages/wallet-share/wallet-share'
 import { TransactionSignedPage } from '../../pages/transaction-signed/transaction-signed'
 import { AirGapWallet, UnsignedTransaction } from 'airgap-coin-lib'
-import { Transaction } from '../../models/transaction.model'
 import { Secret } from '../../models/secret'
 
 export enum InteractionSetting {
-  UNDETERMINED = 'undetermined',
-  ALWAYS_ASK = 'always',
-  SAME_DEVICE = 'same_device',
+  // UNDETERMINED = 'undetermined',
+  // ALWAYS_ASK = 'always',
+  // SAME_DEVICE = 'same_device',
   OFFLINE_DEVICE = 'offline_device'
 }
 
 export enum InteractionCommunicationType {
   QR = 'qr',
-  DEEPLINK = 'deeplink'
+  // DEEPLINK = 'deeplink'
 }
 
 export enum InteractionOperationType {
@@ -42,32 +39,32 @@ export class InteractionProvider {
 
   public startInteraction(navCtrl: NavController, interactionOptions: IInteractionOptions, secret: Secret) {
     const interactionSetting = secret.interactionSetting
-
-    if (interactionOptions.communicationType) {
-      if (interactionSetting === InteractionSetting.UNDETERMINED) {
-        this.goToInteractionSelectionSettingsPage(navCtrl, interactionOptions)
-      }
-      if (interactionOptions.communicationType === InteractionCommunicationType.DEEPLINK) {
-        this.startDeeplink(interactionOptions.url, navCtrl)
-      } else if (interactionOptions.communicationType === InteractionCommunicationType.QR) {
-        this.navigateToPageByOperationType(navCtrl, interactionOptions)
-      }
-    } else {
-      switch (interactionSetting) {
-        case InteractionSetting.UNDETERMINED:
-          this.goToInteractionSelectionPage(navCtrl, interactionOptions)
-          break
-        case InteractionSetting.ALWAYS_ASK:
-          this.goToInteractionSelectionPage(navCtrl, interactionOptions)
-          break
-        case InteractionSetting.SAME_DEVICE:
-          this.startDeeplink(interactionOptions.url, navCtrl)
-          break
-        case InteractionSetting.OFFLINE_DEVICE:
-          this.navigateToPageByOperationType(navCtrl, interactionOptions)
-          break
-      }
-    }
+    this.navigateToPageByOperationType(navCtrl, interactionOptions)
+    // if (interactionOptions.communicationType) {
+    //   if (interactionSetting === InteractionSetting.UNDETERMINED) {
+    //     this.goToInteractionSelectionSettingsPage(navCtrl, interactionOptions)
+    //   }
+    //   if (interactionOptions.communicationType === InteractionCommunicationType.DEEPLINK) {
+    //     this.startDeeplink(interactionOptions.url, navCtrl)
+    //   } else if (interactionOptions.communicationType === InteractionCommunicationType.QR) {
+    //     this.navigateToPageByOperationType(navCtrl, interactionOptions)
+    //   }
+    // } else {
+    //   switch (interactionSetting) {
+    //     case InteractionSetting.UNDETERMINED:
+    //       this.goToInteractionSelectionPage(navCtrl, interactionOptions)
+    //       break
+    //     case InteractionSetting.ALWAYS_ASK:
+    //       this.goToInteractionSelectionPage(navCtrl, interactionOptions)
+    //       break
+    //     case InteractionSetting.SAME_DEVICE:
+    //       this.startDeeplink(interactionOptions.url, navCtrl)
+    //       break
+    //     case InteractionSetting.OFFLINE_DEVICE:
+    //       this.navigateToPageByOperationType(navCtrl, interactionOptions)
+    //       break
+    //   }
+    // }
   }
 
   private goToInteractionSelectionPage(navCtrl: NavController, interactionOptions: IInteractionOptions) {

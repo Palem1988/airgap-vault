@@ -1,7 +1,6 @@
 import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular'
 import { Secret } from '../../models/secret'
-import { InteractionSetting } from '../../providers/interaction/interaction'
 import { SecretsProvider } from '../../providers/secrets/secrets.provider'
 import { SocialRecoverySetupPage } from '../social-recovery-setup/social-recovery-setup'
 import { SecretEditPopoverComponent } from './secret-edit-popover/secret-edit-popover.component'
@@ -29,7 +28,7 @@ export class SecretEditPage {
     this.secret = this.navParams.get('secret')
     this.isGenerating = this.navParams.get('isGenerating')
 
-    this.interactionSetting = this.secret.interactionSetting !== InteractionSetting.UNDETERMINED
+    this.interactionSetting = true // this.secret.interactionSetting !== InteractionSetting.UNDETERMINED
   }
 
   confirm() {

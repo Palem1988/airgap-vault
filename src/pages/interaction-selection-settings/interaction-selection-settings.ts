@@ -1,14 +1,11 @@
 import { Component } from '@angular/core'
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular'
-import { WalletSharePage } from '../wallet-share/wallet-share'
-import { TransactionSignedPage } from '../transaction-signed/transaction-signed'
 import { handleErrorLocal, ErrorCategory } from '../../providers/error-handler/error-handler'
 import { SecretsProvider } from '../../providers/secrets/secrets.provider'
 import { Secret } from '../../models/secret'
 import { InteractionSetting } from '../../providers/interaction/interaction'
 import {
   IInteractionOptions,
-  InteractionOperationType,
   InteractionCommunicationType,
   InteractionProvider
 } from '../../providers/interaction/interaction'
@@ -48,11 +45,11 @@ export class InteractionSelectionSettingsPage {
       this.selectedSetting =
         this.interactionOptions.communicationType === InteractionCommunicationType.QR
           ? InteractionSetting.OFFLINE_DEVICE
-          : this.interactionOptions.communicationType === InteractionCommunicationType.DEEPLINK
-          ? InteractionSetting.SAME_DEVICE
+          : this.interactionOptions.communicationType === InteractionCommunicationType.QR
+          ? InteractionSetting.OFFLINE_DEVICE
           : undefined
-      this.secret.interactionSetting = this.selectedSetting || InteractionSetting.UNDETERMINED // Default to store is undetermined
-      this.selectedSetting = this.selectedSetting || InteractionSetting.ALWAYS_ASK // Default to display is always ask
+      this.secret.interactionSetting = this.selectedSetting || InteractionSetting.OFFLINE_DEVICE // Default to store is undetermined
+      this.selectedSetting = this.selectedSetting || InteractionSetting.OFFLINE_DEVICE // Default to display is always ask
       this.secretProvider.addOrUpdateSecret(this.secret)
     }
   }
